@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gato con d20</title>
     <link rel="stylesheet" href="../css/estilo.css">
 </head>
 <body>
@@ -11,64 +11,72 @@
     <div id="reglas">
 
         <h1>REGLAS</h1>
-        <p><ol>
+        <p><ul>
             <li>Cada vez que se de click en un cuadro se lanza un dado(d20)</li>
             <li>Los resultados son 1 a 20</li>
-            <li>De 1 a 7 el resultado se considera negativo y el turno perdido</li>
-            <li>De 8 a 12 se realiza una tirada de salvacion </li>
-            <li>De 13 a 20 el resultado se considera positivo y se marca la casilla selecionada</li>
-            <li>La tirada de salvacion consta de un d12</li>
-            <li>si el resultado del d12 es de 1 a 6 se pierde el turno y si es de 7 a 12 se marca la casilla seleccionada</li>
-        </ol></p>
+            <li>De 1 a 10 el resultado se considera negativo y el turno perdido</li>
+            <li>De 11 a 20 el resultado se considera positivo y se marca la casilla selecionada</li>
+        </ul></p>
     </div>
    
-   
-   
-   
+   <div id="botones">
+   <button id="botonX">X</button>
+   <button id="botonO">O</button>
+   <button id="reiniciar">Reiniciar</button>
+   <button id="botonModo">cambiar modo: multijugador </button>
+   </div>
+   <section id="gato">
     <section id="tablero">
         
         
-        <div class="cuadro">
-            1
+        <div class="cuadro" >
+          
         </div>
 
-        <div class="cuadro">
-            2
+        <div class="cuadro" data-index="1">
+           
         </div>
 
-        <div class="cuadro">
-            3
+        <div class="cuadro" data-index="2">
+           
         </div>
 
-        <div class="cuadro">
-            4
+        <div class="cuadro" data-index="3">
+           
         </div>
 
-        <div class="cuadro">
-            5
+        <div class="cuadro" data-index="4">
+            
         </div>
 
-        <div class="cuadro">
-            6
-        </div>
-
-
-        <div class="cuadro">
-            7
-        </div>
-
-        <div class="cuadro">
-            8
+        <div class="cuadro" data-index="5">
+           
         </div>
 
 
-        <div class="cuadro">
-            9
+        <div class="cuadro" data-index="6">
+           
+        </div>
+
+        <div class="cuadro" data-index="7">
+            
+        </div>
+
+
+        <div class="cuadro" data-index="8">
+            
         </div>
     </section>
+    </section>
+   
+   
+   
+    <section id="contenedor">
+        <div id="dados"></div>
+        <p id="resultadoDado">Resultados: -</p>
+    </section>
 
-
-
+<P id="estado">selecciona una ficha</P>
 
 
 
