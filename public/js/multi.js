@@ -1,7 +1,15 @@
 const dado=document.getElementById("dados");
 const resultadoDado=document.getElementById("resultadoDado");
-const casillas=document.getElementsByClassName("cuadro")
-const estado=document.getElementById("estado")
+const casillas=document.getElementsByClassName("cuadro");
+const estado=document.getElementById("estado");
+const reiniciar=document.getElementById("reiniciar");
+const botonModo=document.getElementById("botonModo");
+
+
+
+let empate=true
+let contador=0
+
 function lanzarDado() {
     // numero random entre 1 y 20 
     // el +1 es para que me de el numero 20 sin el solo llegaria a 19
@@ -22,13 +30,12 @@ function lanzarDado() {
     return numero;
     
 }
-
-let jugador = true                                          //esta funcion es para que gire el dado y se marquen las casillas por el resultado
+let jugador = true  //esta funcion es para que gire el dado y se marquen las casillas por el resultado
 for (let index = 0; index < casillas.length; index++) {
    
     casillas[index].addEventListener("click", function(){
         const numero=lanzarDado()
-        console.log(numero);
+       
         
         if (numero>10 && casillas[index].textContent === "") {
 
@@ -39,6 +46,9 @@ for (let index = 0; index < casillas.length; index++) {
                 }, 2000)
                 jugador = false
                 estado.textContent="turno de O"
+                 setTimeout(() => {
+                    estado.textContent=" "
+                },1000 );
             } else{
                 setTimeout(function() {
                     casillas[index].textContent = "O"
@@ -46,17 +56,31 @@ for (let index = 0; index < casillas.length; index++) {
                 }, 2000)
                 jugador = true
                 estado.textContent="turno de X"
+                setTimeout(() => {
+                    estado.textContent=" "
+                },1000 );
             }
             
             
         }else{
             setTimeout(function() {
                 estado.textContent= "Turno perdido"
-            }, 2000)
+                setTimeout(() => {
+                    estado.textContent=" "
+                },2000 );
+            }, 3000)
+            
             if (jugador) {
                 jugador = false
+                setTimeout(() => {
+                    estado.textContent="Turno perdido X"
+                },2000 );
+                
             } else{
                 jugador = true
+                setTimeout(() => {
+                    estado.textContent="Turno perdido O"
+                },2000 );
             }
             
         }
@@ -84,22 +108,38 @@ function ganador() {
         if (casillas[element[0]].textContent === "X" && casillas[element[1]].textContent === "X" && casillas[element[2]].textContent === "X" ) {
            setTimeout(function() {
                 alert("gano X")
+                history.go(0)
             }, 500)
+            empate=false
+             
            
         }
         if (casillas[element[0]].textContent === "O" && casillas[element[1]].textContent === "O" && casillas[element[2]].textContent === "O" ) {
          setTimeout(function() {
                 alert("gano O")
+                history.go(0)
             }, 500)
+            empate=false
             
-        }
+            
+        } 
         
-           
-       
-       
+      
     }
+        contador++
 
+   if (contador==9 && empate==true) {
+    setTimeout(() => {
+        alert("Empate")
+         history.go(0)
+    }, 1000);
+   }
+   
 
 }
+
+
+
+
 
 
